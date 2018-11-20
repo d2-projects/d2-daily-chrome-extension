@@ -6,7 +6,7 @@ let tool = {}
 // 判断当前页面是否为 issue 提交页面
 tool.isIssuePage = function () {
   const u = url.parse(location.href, true)
-  return `${u.protocol}//${u.host}${u.pathname}` === setting.issuePage
+  return `${u.protocol}//${u.host}${u.pathname}` === setting.issuePage && JSON.stringify(u.query) !== '{}'
 }
 
 // 获取当前日期
