@@ -1,5 +1,5 @@
-const { issuePage } = require('./setting')
-const url = require('url')
+import { issuePage } from './setting'
+import url from 'url'
 
 // 响应 background 信息
 chrome.extension.onMessage.addListener(

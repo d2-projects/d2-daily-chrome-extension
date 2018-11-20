@@ -1,5 +1,5 @@
-const { issuePage } = require('./setting')
-const qs = require('qs')
+import { issuePage } from './setting'
+import qs from 'qs'
 
 var menus = [
   '新闻',
@@ -21,9 +21,10 @@ var menus = [
           ...res,
           type
         }
-        // 跳转到 issue 页面
+        // 携带信息跳转到 issue 页面
         chrome.tabs.create({
-          url: `${issuePage}?${qs.stringify(result)}`
+          url: `${issuePage}?${qs.stringify(result)}`,
+          active: false
         })
       });
     }
