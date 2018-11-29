@@ -1,5 +1,3 @@
-import tool from './tool'
-
 export default function (data) {
   return `
 **:hash: 标题** : ${data.name}
@@ -24,6 +22,6 @@ export default function (data) {
 ${JSON.stringify(data)}
 \`\`\`
 
-> \`${tool.getDate()}\` | 来自 Chrome 插件分享
+> 来自 Chrome 插件 [d2-projects/d2-awesome-daily-submit-chrome-extension](https://github.com/d2-projects/d2-awesome-daily-submit-chrome-extension) 分享
 `.trim()
 }

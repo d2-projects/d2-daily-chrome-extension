@@ -10,14 +10,14 @@ tool.isIssuePage = function () {
 }
 
 // 获取当前日期
-tool.getDate = function () {
-  const dt = new Date()
-  let year = dt.getFullYear()
-  let month = dt.getMonth() + 1
-  let day = dt.getDate()
-  month = month < 10 ? '0' + month : month
-  day = day < 10 ? '0' + day : day
-  return `${year}年${month}月${day}日`
-}
+// tool.getDate = function () {
+//   const dt = new Date()
+//   let year = dt.getFullYear()
+//   let month = dt.getMonth() + 1
+//   let day = dt.getDate()
+//   month = month < 10 ? '0' + month : month
+//   day = day < 10 ? '0' + day : day
+//   return `${year}年${month}月${day}日`
+// }
 
 export default tool

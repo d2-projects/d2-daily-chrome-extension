@@ -12,7 +12,7 @@ function submit () {
   // 提交
   const buttonSubmit = document.querySelector('#new_issue > div > div.discussion-timeline > div > div > div.form-actions > button')
   buttonSubmit.disabled = false
-  // buttonSubmit.click()
+  buttonSubmit.click()
 }
 
 if (tool.isIssuePage()) submit()
