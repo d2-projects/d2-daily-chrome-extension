@@ -1,8 +1,8 @@
 {
-  "name": "推荐到 D2 日报",
-  "version": "0.0.1",
+  "name": "D2 日报提交助手",
+  "version": "1.0.0",
   "manifest_version": 2,
-  "description": "submit your daily",
+  "description": "分享有价值的内容给所有人",
   "icons": { 
     "16": "image/icon/16@2x.png",             
     "48": "image/icon/48@2x.png",            
@@ -10,7 +10,7 @@
   },
   "browser_action": {
     "default_icon": "image/icon/browser_action@2x.png",
-    "default_title": "DailySubmit",
+    "default_title": "D2Daily",
     "default_popup": "index.html"
   },
   "content_scripts": [
