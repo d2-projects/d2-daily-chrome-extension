@@ -10,29 +10,29 @@ export default function crawler () {
     ]
   }
   const u = url.parse(location.href, true)
-  let name = document.title
-  let note = document.title
+  let title = document.title
+  let description = document.title
   switch (u.host) {
     case 'github.com': {
-      name = split(document.title)[0]
-      note = split(document.title)[1]
+      title = split(document.title)[0]
+      description = split(document.title)[1]
     }; break;
     case 'juejin.im': {
-      name = split(document.title, ' - ')[0]
-      note = split(document.title, ' - ')[1]
+      title = split(document.title, ' - ')[0]
+      description = split(document.title, ' - ')[1]
     }; break;
     case 'mp.weixin.qq.com': {
-      name = document.querySelector('#activity-name').innerText
+      title = document.querySelector('#activity-name').innerText
     }; break;
     case 'uimovement.com': {
-      name = split(document.title, ' - ')[0]
-      note = split(document.title, ' - ')[1]
+      title = split(document.title, ' - ')[0]
+      description = split(document.title, ' - ')[1]
     }; break;
     default: break;
   }
   return {
-    name,
-    note,
+    title,
+    description,
     url: location.href,
   }
 }
