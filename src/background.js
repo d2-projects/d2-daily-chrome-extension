@@ -3,16 +3,17 @@ var menus = [
   '开源项目',
   '分享',
   '教程',
+  '网站',
   '工具',
-  '招聘',
-  '设计'
-].map(type => {
+  '设计',
+  '招聘'
+].map(category => {
   return chrome.contextMenus.create({
-    title: type,
+    title: category,
     onclick: function (info, tab) {
       chrome.tabs.sendMessage(tab.id, {
         action: 'getInfo',
-        type
+        category
       })
     }
   })

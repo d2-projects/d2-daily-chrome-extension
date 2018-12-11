@@ -30,6 +30,10 @@ export default function crawler () {
     }; break;
     default: break;
   }
+  // 保底
+  title = title || location.href
+  description = description || title
+  // 返回数据
   return {
     title,
     description,
