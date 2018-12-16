@@ -1,8 +1,8 @@
 {
-  "name": "D2 日报提交助手",
-  "version": "1.0.0",
+  "name": "推荐到 D2 日报",
+  "version": "1.1.0",
   "manifest_version": 2,
-  "description": "分享有价值的内容给所有人",
+  "description": "分享有价值的内容给所有志同道合的人",
   "icons": { 
     "16": "image/icon/16@2x.png",             
     "48": "image/icon/48@2x.png",            
