@@ -14,19 +14,37 @@ export default function crawler () {
 
   // 如果是 github 项目地址，检查语言类型
   function getGithubInfo () {
+
+    /**
+     * 根据选择器获取内部的值
+     * @param {String} selector 选择器
+     * @param {*} def 查找失败后的默认返回值
+     * @param {Function} handle 返回之前的处理函数
+     */
+    function getInnerText (selector = '', def = '', handle = function (t) { return t }) {
+      const s = document.querySelector(selector)
+      if (s) {
+        return handle(s.innerText)
+      } else {
+        return def
+      }
+    }
+
     if (isGithub()) {
       // 语言
-      const lang = (document.querySelector('#js-repo-pjax-container > div.container.new-discussion-timeline.experiment-repo-nav > div.repository-content > button').innerText || '')
-        .split('\n')
-        .filter(e => e !== '')
-      githubInfo.lang = lang.join(',')
-      githubInfo.langPrimary = lang[0] || ''
+      const lang = getInnerText('#js-repo-pjax-container > div.container.new-discussion-timeline.experiment-repo-nav > div.repository-content > button', [], function (text) {
+        return text.split('\n').filter(e => e !== '')
+      })
+      githubInfo.lang = lang.length > 0 ? lang.join(',') : 'other'
+      githubInfo.langPrimary = lang.length > 0 ? lang[0] : 'other'
       // watch
-      githubInfo.watch = Number(document.querySelector('.pagehead-actions li:nth-child(1) form:nth-child(1) a').innerText)
+      githubInfo.watch = getInnerText('.pagehead-actions li:nth-child(1) form:nth-child(1) a', null)
       // star
-      githubInfo.star = Number(document.querySelector('.pagehead-actions li:nth-child(2) form:nth-child(1) a').innerText.trim().replace(',', ''))
+      githubInfo.star = getInnerText('.pagehead-actions li:nth-child(2) form:nth-child(1) a', null, function (text) {
+        return text.trim().replace(',', '')
+      })
       // fork
-      githubInfo.fork = Number(document.querySelector('.pagehead-actions li:nth-child(3) a.social-count').innerText)
+      githubInfo.fork = getInnerText('.pagehead-actions li:nth-child(3) a.social-count', null)
     }
   }
 

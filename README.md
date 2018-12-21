@@ -54,21 +54,22 @@
 
 ## API 数据字段
 
-| 名称 | 含义 | 值类型 | 是否必含 | 为何值时不输出到 md |
-| --- | --- | --- | --- | --- |
-| category | 分类 | String | ✅ | 永远输出 |
-| title | 标题 | String | ✅ | 永远输出 |
-| description | 介绍 | String | ✅ | 永远输出 |
-| url | 地址 | String | ✅ | 永远输出 |
-| lang | 编程语言 | String | ❌ | 空字符串 |
-| langPrimary | 主要编程语言 | String | ❌ | 永远不出现在 md |
-| watch | 仓库 watch | Number | ❌ | null |
-| star | 仓库 star | Number | ❌ | null |
-| fork | 仓库 fork | Number | ❌ | null |
-| vpn | 需要科学上网 | Boolean | ❌ | false |
-| video | 是视频内容 | Boolean | ❌ | false |
-| device | 提交设备 | String | ✅ | 永远不出现在 md |
-| source | 提交来源 | String | ✅ | 永远不出现在 md |
+| 名称 | 含义 | 值类型 | 为何值时不输出到 md |
+| --- | --- | --- | --- |
+| category | 分类 | String | 永远输出 |
+| title | 标题 | String | 永远输出 |
+| description | 介绍 | String | 永远输出 |
+| url | 地址 | String | 永远输出 |
+| lang | 编程语言 | String | 空字符串 |
+| langPrimary | 主要编程语言 | String | 永远不出现在 md |
+| watch | 仓库 watch | Number | null |
+| star | 仓库 star | Number | null |
+| fork | 仓库 fork | Number | null |
+| isChinese | 中文内容 | Boolean | true |
+| vpn | 需要科学上网 | Boolean | false |
+| video | 是视频内容 | Boolean | false |
+| device | 提交设备 | String | 永远不出现在 md |
+| source | 提交来源 | String | 永远不出现在 md |
 
 发送数据示例 1：
 

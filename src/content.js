@@ -41,6 +41,9 @@ chrome.extension.onMessage.addListener(
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">简介</p>
           <textarea id="d2-daily-description" class="swal2-textarea" style="margin: 10px 0;" row="2">${data.description}</textarea>
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
+            <input type="checkbox" id="is-chinese" checked> 中文内容
+          </p>
+          <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
             <input type="checkbox" id="network-low"> 不易访问的网站，需要特殊处理
           </p>
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
@@ -54,6 +57,7 @@ chrome.extension.onMessage.addListener(
           return {
             title: document.getElementById('d2-daily-title').value,
             description: document.getElementById('d2-daily-description').value,
+            isChinese: document.getElementById('is-chinese').checked,
             vpn: document.getElementById('network-low').checked,
             video: document.getElementById('is-video').checked
           }
