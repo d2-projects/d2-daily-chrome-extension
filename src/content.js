@@ -44,10 +44,10 @@ chrome.extension.onMessage.addListener(
             <input type="checkbox" id="is-chinese" checked> 中文内容
           </p>
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
-            <input type="checkbox" id="network-low"> 不易访问的网站，需要特殊处理
+            <input type="checkbox" id="is-video"> 视频类型内容
           </p>
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
-            <input type="checkbox" id="is-video"> 视频类型的内容
+            <input type="checkbox" id="network-low"> 不易访问，需要特殊操作
           </p>
           <br/>
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">URL</p>
@@ -82,10 +82,10 @@ chrome.extension.onMessage.addListener(
         return
       }
 
-      console.log(JSON.stringify({
-        ...data,
-        ...value
-      }, null, 2))
+      // console.log(JSON.stringify({
+      //   ...data,
+      //   ...value
+      // }, null, 2))
 
       if (value.title !== '' && value.description !== '') {
         service({

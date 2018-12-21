@@ -52,6 +52,15 @@
 
 提交成功之后您的分享将出现在第二天的 [D2 Daily](https://awesome.fairyever.com/daily/) 中。
 
+## 本地构建
+
+如果您希望自己构建代码，请执行以下操作：
+
+```
+npm i
+npm run build
+```
+
 ## API 数据字段
 
 | 名称 | 含义 | 值类型 | 为何值时不输出到 md |
