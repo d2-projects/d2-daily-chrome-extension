@@ -60,10 +60,11 @@
 | title | 标题 | String | ✅ | 永远输出 |
 | description | 介绍 | String | ✅ | 永远输出 |
 | url | 地址 | String | ✅ | 永远输出 |
-| lang | 编程语言 | Array | ❌ | 空数组 |
-| watch | 仓库 watch | String | ❌ | 空字符串 |
-| star | 仓库 star | String | ❌ | 空字符串 |
-| fork | 仓库 fork | String | ❌ | 空字符串 |
+| lang | 编程语言 | String | ❌ | 空字符串 |
+| langPrimary | 主要编程语言 | String | ❌ | 永远不出现在 md |
+| watch | 仓库 watch | Number | ❌ | null |
+| star | 仓库 star | Number | ❌ | null |
+| fork | 仓库 fork | Number | ❌ | null |
 | vpn | 需要科学上网 | Boolean | ❌ | false |
 | video | 是视频内容 | Boolean | ❌ | false |
 | device | 提交设备 | String | ✅ | 永远不出现在 md |
