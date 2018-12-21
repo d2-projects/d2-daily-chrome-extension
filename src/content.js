@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import crawler from './crawler'
+import { isGithub } from './tool'
 
 const service = axios.create({
   baseURL: 'https://hellogithub.com',
@@ -20,30 +21,46 @@ chrome.extension.onMessage.addListener(
     // 获取页面信息
     if (request.action == 'getInfo') {
       const data = {
+        // 页面信息
         ...crawler(),
+        // 类型
         category: request.category,
+        // api 需要
         source: 'd2',
         device: 'chrome'
       }
 
-      const { value: { title, description } } = await Swal({
+      const { value } = await Swal({
         title: '提交此页面',
-        html: `<p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">标题</p>
+        html: `
+          <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
+            标题
+            ${isGithub() ? '（github 项目还会同时收录到 <a href="https://github.com/521xueweihan/HelloGitHub">HelloGitHub月报</a>）' : ''}
+          </p>
           <input id="d2-daily-title" value="${data.title}" class="swal2-input" style="margin: 10px 0;">
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">简介</p>
-          <textarea id="d2-daily-description" class="swal2-textarea" style="margin: 10px 0;">${data.description}</textarea>
+          <textarea id="d2-daily-description" class="swal2-textarea" style="margin: 10px 0;" row="2">${data.description}</textarea>
+          <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
+            <input type="checkbox" id="network-low"> 不易访问的网络环境，需要特殊处理
+          </p>
+          <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">
+            <input type="checkbox" id="is-video"> 视频类型的内容
+          </p>
+          <br/>
           <p style="margin: 0; text-align: left; font-size: 14px; font-weight: bold;">URL</p>
           <p style="margin: 0; text-align: left; font-size: 14px;">${data.url}</p>`,
         focusConfirm: true,
         preConfirm: () => {
           return {
             title: document.getElementById('d2-daily-title').value,
-            description: document.getElementById('d2-daily-description').value
+            description: document.getElementById('d2-daily-description').value,
+            vpn: document.getElementById('network-low').checked,
+            video: document.getElementById('is-video').checked
           }
         }
       })
       
-      if (title === '') {
+      if (value.title === '') {
         Swal({
           type: 'error',
           title: '不要留空标题',
@@ -52,7 +69,7 @@ chrome.extension.onMessage.addListener(
         return
       }
 
-      if (description === '') {
+      if (value.description === '') {
         Swal({
           type: 'error',
           title: '不要留空描述',
@@ -61,14 +78,18 @@ chrome.extension.onMessage.addListener(
         return
       }
 
-      if (title !== '' && description !== '') {
+      console.log(JSON.stringify({
+        ...data,
+        ...value
+      }, null, 2))
+
+      if (value.title !== '' && value.description !== '') {
         service({
           url: '/api/v1/project/recommend/',
           method: 'post',
           data: {
             ...data,
-            title,
-            description
+            ...value
           }
         })
           .then(res => {
