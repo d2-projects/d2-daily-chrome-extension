@@ -65,7 +65,7 @@
 | watch | 仓库 watch | Number | ❌ | null |
 | star | 仓库 star | Number | ❌ | null |
 | fork | 仓库 fork | Number | ❌ | null |
-| vpn | 需要科学上网 | Boolean | ❌ | false |
+| vpn | 需要科学上网 | Boolean | ❌ | false |
 | video | 是视频内容 | Boolean | ❌ | false |
 | device | 提交设备 | String | ✅ | 永远不出现在 md |
 | source | 提交来源 | String | ✅ | 永远不出现在 md |
