@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import AppComponent from './App/App.vue'
+import AppComponent from './App.vue'
 
 import {
   Card
