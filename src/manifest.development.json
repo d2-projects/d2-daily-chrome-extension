@@ -7,7 +7,7 @@
     "browser_action": {
         "default_popup": "popup.html"
     },
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; style-src 'self';",
     "content_scripts": [{
         "matches": [
             "http://*/*",
@@ -26,5 +26,8 @@
     },
     "permissions": [
       "contextMenus"
+    ],
+    "web_accessible_resources": [
+        "fonts/*"
     ]
 }
