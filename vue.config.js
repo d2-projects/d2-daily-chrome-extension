@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ZipPlugin = require('zip-webpack-plugin')
 const path = require('path')
 
 // Generate pages object
@@ -30,6 +31,16 @@ const plugins = [
     ]
   )
 ]
+
+// 生产环境打包dist为zip
+if (process.env.NODE_ENV === 'production') {
+  plugins.push(
+    new ZipPlugin({
+      path: path.resolve('dist'),
+      filename: 'dist.zip'
+    })
+  )
+}
 
 module.exports = {
   pages: pagesObj,
