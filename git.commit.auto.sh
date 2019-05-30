@@ -6,4 +6,4 @@ git add .*
 
 git commit -m ":construction: Temporary preservation"
 
-git push origin master
+git push origin vue
