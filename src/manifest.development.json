@@ -20,7 +20,11 @@
     }],
     "background": {
         "scripts": [
-            "hot-reload.js"
+            "hot-reload.js",
+            "js/background.js"
         ]
-    }
+    },
+    "permissions": [
+      "contextMenus"
+    ]
 }
