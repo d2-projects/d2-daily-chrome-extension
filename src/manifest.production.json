@@ -1,13 +1,13 @@
 {
-    "manifest_version": 2,
     "name": "推荐到日报",
+    "version": "1.2.0",
+    "manifest_version": 2,
     "description": "向更多人的分享你的发现",
     "icons": { 
       "16": "image/icon/16@2x.png",
       "48": "image/icon/48@2x.png",
       "128": "image/icon/128@2x.png"
     },
-    "version": "1.2.0",
     "options_page": "options.html",
     "browser_action": {
         "default_icon": "image/icon/browser_action@2x.png",
