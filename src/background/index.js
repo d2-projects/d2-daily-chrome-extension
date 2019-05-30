@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-var menus = [
+const menus = [
   '新闻',
   '开源项目',
   '分享',
@@ -9,13 +9,15 @@ var menus = [
   '工具',
   '设计',
   '招聘'
-].map(category => {
-  return chrome.contextMenus.create({
-    title: category,
+]
+
+menus.forEach((menu, index) => {
+  chrome.contextMenus.create({
+    title: menu,
     onclick: function (info, tab) {
       chrome.tabs.sendMessage(tab.id, {
         action: 'getInfo',
-        category
+        category: menu
       })
     }
   })
