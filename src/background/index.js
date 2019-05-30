@@ -10,7 +10,6 @@ var menus = [
   '设计',
   '招聘'
 ].map(category => {
-  console.log('chrome', chrome)
   return chrome.contextMenus.create({
     title: category,
     onclick: function (info, tab) {

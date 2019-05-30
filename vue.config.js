@@ -14,14 +14,22 @@ chromeName.forEach(name => {
   }
 })
 
-const plugins =
-  process.env.NODE_ENV === 'production' ? [{
-    from: path.resolve('src/manifest.production.json'),
-    to: `${path.resolve('dist')}/manifest.json`
-  }] : [{
-    from: path.resolve('src/manifest.development.json'),
-    to: `${path.resolve('dist')}/manifest.json`
-  }]
+const manifestPath = process.env.NODE_ENV === 'production' ? 'src/manifest.production.json' : 'src/manifest.development.json'
+
+const plugins = [
+  CopyWebpackPlugin(
+    [
+      {
+        from: path.resolve(manifestPath),
+        to: `${path.resolve('dist')}/manifest.json`
+      },
+      {
+        from: path.resolve('src/assets'),
+        to: `${path.resolve('dist')}/assets`
+      }
+    ]
+  )
+]
 
 module.exports = {
   pages: pagesObj,
@@ -36,11 +44,23 @@ module.exports = {
     output: {
       filename: 'js/[name].js'
     },
-    plugins: [CopyWebpackPlugin(plugins)]
+    plugins
   },
   css: {
     extract: {
       filename: 'css/[name].css'
     }
+  },
+  chainWebpack: config => {
+    // 处理字体文件名，去除hash值
+    config.module
+      .rule('fonts')
+      .test(/\.(woff2?|eot|ttf|otf)(\?.*)?$/)
+      .use('url')
+      .loader('url-loader')
+      .options({
+        limit: 1000,
+        name: 'fonts/[name].[ext]'
+      })
   }
 }
