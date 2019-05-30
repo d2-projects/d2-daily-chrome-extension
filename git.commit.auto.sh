@@ -1,6 +1,6 @@
 # chmod +x ./git.commit.auto.sh
 
-git add -f
+# git add -f
 
 git add .
 
