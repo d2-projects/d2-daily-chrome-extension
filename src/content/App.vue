@@ -7,6 +7,13 @@
     text-align: left;
   }
 }
+.d2-daily-extension-content--dialog {
+  .el-dialog {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    text-align: left;
+  }
+}
 .d2-daily-extension-content {
   text-align: left;
   .el-form-item {
@@ -20,31 +27,33 @@
 
 
 <template>
-  <div class="d2-daily-extension-content">
-    <el-dialog
-      title="提交到 D2Daily"
-      :visible.sync="dialogVisible"
-      width="400px"
-      class="d2-daily-extension-content--dialog">
-      <el-form ref="form" label-position="top" :rules="rules" :model="form" size="default">
-        <el-form-item prop="title" label="标题">
-          <el-input type="text" v-model="form.title" placeholder="标题"/>
-        </el-form-item>
-        <el-form-item prop="description" label="介绍">
-          <el-input type="textarea" :rows="3" v-model="form.description" placeholder="介绍"/>
-        </el-form-item>
-        <el-form-item>
-          <el-checkbox v-model="form.isChinese" border>中文</el-checkbox>
-          <el-checkbox v-model="form.video" border>视频类型</el-checkbox>
-          <el-checkbox v-model="form.vpn" border>网络不便</el-checkbox>
-        </el-form-item>
-      </el-form>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="close">取 消</el-button>
-        <el-button type="primary" @click="submit">确 定</el-button>
-      </span>
-    </el-dialog>
-  </div>
+  <el-dialog
+    title="提交到 D2Daily"
+    :visible.sync="dialogVisible"
+    width="400px"
+    top="0px"
+    :append-to-body="true"
+    :close-on-click-modal="false"
+    :show-close="false"
+    class="d2-daily-extension-content--dialog">
+    <el-form ref="form" label-position="top" :rules="rules" :model="form" size="default" class="d2-daily-extension-content">
+      <el-form-item prop="title" label="标题">
+        <el-input type="text" v-model="form.title" placeholder="标题"/>
+      </el-form-item>
+      <el-form-item prop="description" label="介绍">
+        <el-input type="textarea" :rows="3" v-model="form.description" placeholder="介绍"/>
+      </el-form-item>
+      <el-form-item>
+        <el-checkbox v-model="form.isChinese" border>中文</el-checkbox>
+        <el-checkbox v-model="form.video" border>视频类型</el-checkbox>
+        <el-checkbox v-model="form.vpn" border>网络不便</el-checkbox>
+      </el-form-item>
+    </el-form>
+    <span slot="footer" class="dialog-footer">
+      <el-button @click="close">取 消</el-button>
+      <el-button type="primary" @click="submit">确 定</el-button>
+    </span>
+  </el-dialog>
 </template>
 
 <script>
