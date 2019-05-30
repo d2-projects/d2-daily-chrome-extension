@@ -30,7 +30,6 @@ export default function () {
       githubInfo.star = doms.eq(doms.length - 2).find('a.social-count').html().trim().replace(',', '')
       // fork
       githubInfo.fork = doms.eq(doms.length - 1).find('a.social-count').html().trim().replace(',', '')
-      console.log('githubInfo', githubInfo)
     }
   }
 
