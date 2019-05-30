@@ -1,6 +1,6 @@
 <template>
   <div class="main_app">
-    <h1>Hello Options</h1>
+    <h1>欢迎使用日报提交工具</h1>
   </div>
 </template>
 

@@ -4,7 +4,7 @@ import {
   Message
 } from 'element-ui'
 
-import './insertElementIcons'
+import './tools/insert-element-icons'
 
 chrome.extension.onMessage.addListener(
   async function (request, sender, sendMessage) {
