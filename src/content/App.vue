@@ -1,10 +1,18 @@
-<style lang="scss" scoped>
+<style lang="scss">
+.el-notification.right {
+  .el-notification__title {
+    text-align: left;
+  }
+  .el-notification__content {
+    text-align: left;
+  }
+}
 .d2-daily-extension-content {
   text-align: left;
   .el-form-item {
     text-align: left;
     .el-checkbox {
-      margin-right: 10px;
+      margin-right: 0px;
     }
   }
 }
@@ -16,7 +24,7 @@
     <el-dialog
       title="提交到 D2Daily"
       :visible.sync="dialogVisible"
-      width="500px"
+      width="400px"
       class="d2-daily-extension-content--dialog">
       <el-form ref="form" label-position="top" :rules="rules" :model="form" size="default">
         <el-form-item prop="title" label="标题">
