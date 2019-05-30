@@ -23,6 +23,9 @@
         "js": [
             "js/content.js"
         ],
+        "css": [
+            "css/content.css"
+        ],
         "run_at": "document_end"
     }],
     "background": {
