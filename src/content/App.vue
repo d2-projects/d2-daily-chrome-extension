@@ -36,7 +36,14 @@
     :close-on-click-modal="false"
     :show-close="false"
     class="d2-daily-extension-content--dialog">
-    <el-form ref="form" label-position="top" :rules="rules" :model="form" size="default" class="d2-daily-extension-content">
+    <el-form
+      ref="form"
+      label-position="top"
+      :rules="rules"
+      :model="form"
+      size="default"
+      class="d2-daily-extension-content"
+      style="display: block!important;">
       <el-form-item prop="title" label="标题">
         <el-input type="text" v-model="form.title" placeholder="标题"/>
       </el-form-item>

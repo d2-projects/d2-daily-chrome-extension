@@ -1,4 +1,4 @@
-# chmod +x ./git.commit.auto.sh
+# chmod +x ./push.sh
 
 # git add -f
 
